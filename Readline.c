@@ -1,11 +1,3 @@
-#include <stdio.h>
-#include <unistd.h>
-#include <stdlib.h>
-#include <sys/types.h>
-#include <sys/wait.h>
-#include <fcntl.h>
-#include <string.h>
-#include <errno.h>
 /**
  * Read_line - function that read data from user (standard input)
  * @input: double pointer to the string to be read
