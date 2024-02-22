@@ -20,7 +20,7 @@ while (1)
 
 // user_input  = getline
 
-if (usr_inpt == 2)
+if (usr_input == 2)
 {
     if (isatty(STDIN_FILENO))
 {
