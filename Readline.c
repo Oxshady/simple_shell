@@ -1,3 +1,4 @@
+#include "main.h"
 /**
  * Read_line - function that read data from user (standard input)
  * @input: double pointer to the string to be read
