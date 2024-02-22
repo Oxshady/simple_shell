@@ -1,6 +1,6 @@
 #include "main.h"
 /**
- * Read_line - function that read data from user (standard input)
+ * Read_line - function that read data from the user (standard input)
  * @input: double pointer to the string to be read
  * @size: the size of input string
  * Return: 0 if EOF EXIT-FAIULE if error number of chars if end successfully
