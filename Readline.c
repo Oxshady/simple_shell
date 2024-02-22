@@ -1,0 +1,27 @@
+#include <stdio.h>
+#include <unistd.h>
+#include <stdlib.h>
+#include <sys/types.h>
+#include <sys/wait.h>
+#include <fcntl.h>
+#include <string.h>
+#include <errno.h>
+/**
+ * Read_line - function that read data from user (standard input)
+ * @input: double pointer to the string to be read
+ * @size: the size of input string
+ * Return: 0 if EOF EXIT-FAIULE if error number of chars if end successfully
+*/
+ssize_t Read_line(char **input, size_t *size)
+{
+	ssize_t Read = getline(input, size, stdin);
+
+	if (Read == -1)
+	{
+		if (feof(stdin))
+			exit(0);
+		else
+			exit(EXIT_FAILURE);
+	}
+	return (Read);
+}
