@@ -12,9 +12,17 @@ ssize_t Read_line(char **input, size_t *size)
 	if (Read == -1)
 	{
 		if (feof(stdin))
+		{
+			free(input);
+			input = NULL;
 			exit(0);
+		}
 		else
+		{
+			free(input);
+			input = NULL;
 			exit(EXIT_FAILURE);
+		}
 	}
 	return (Read);
 }

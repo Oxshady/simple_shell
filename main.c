@@ -10,7 +10,9 @@
 
 int main(__attribute__((unused))int argc, char **argv, char **env)
 {
-ssize_t *usr_input;
+char *usr_input;
+ssize_t input_stat;
+size_t size = 1024;
 char **tokens;
 int status = 0;
 int com_count = 0;
@@ -18,9 +20,8 @@ int com_count = 0;
 while (1)
 {
 
-// user_input  = getline
-
-if (usr_input == 2)
+input_stat = Read_line(&usr_input,&size);
+if (input_stat == 2)
 {
     if (isatty(STDIN_FILENO))
 {
