@@ -18,9 +18,9 @@ int com_count = 0;
 while (1)
 {
 
-// user_input  = getline
+user_input  = Read_line()
 
-if (usr_inpt == 2)
+if (user_input == 2)
 {
     if (isatty(STDIN_FILENO))
 {
@@ -42,5 +42,6 @@ continue;
  chek the command in the path or not
  exce the command
 */
+
 }
 }
