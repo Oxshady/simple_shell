@@ -1,16 +1,16 @@
 #include "main.h"
 
-/
- 
-main - simple shell
-@argv: vector argument
-@ac: counter argument
-@environment: environment to find the path
-Return: 0
+/**
+* main - simple shell
+* @argv: vector argument
+* @ac: counter argument
+* @environment: environment to find the path
+* Return: 0
 */
 
-int main(attribute((unused))int argc, char argv, char env)
+int main(int argc, char argv, char env)
 {
+(void)argc;
 char *usr_input = NULL;
 ssize_t input_stat;
 size_t size = 1024;
