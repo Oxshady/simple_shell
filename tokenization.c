@@ -1,5 +1,4 @@
 #include "main.h"
-extern 	char **vector = NULL;
 void tokenize(char *inp, int size, char ***vector)
 {
 	int token_counter = 0;
