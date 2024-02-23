@@ -10,6 +10,7 @@
 
 int main(__attribute__((unused))int argc, char **argv, char **env)
 {
+(void)env;
 char *usr_input = NULL;
 ssize_t input_stat;
 size_t size = 1024;
