@@ -45,7 +45,10 @@ void tokenize(char *inp, int size, char ***vector)
 				free((*vector)[ii]);
 			}
 			free(*vector);
+			vector = NULL;
 			free(inp_copy);
+			inp_copy = NULL;
+			
 		}
 		strcpy((*vector)[i],token);
 		i++;
@@ -53,5 +56,6 @@ void tokenize(char *inp, int size, char ***vector)
 	}
 	(*vector)[i] = NULL;
 	free(inp_copy);
+	inp_copy = NULL;
 	}
 }
