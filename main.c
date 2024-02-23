@@ -34,7 +34,7 @@ int pid;
     else
     {
         tokenize(usr_input,input_stat,&argv);
-        pid = fork();
+        pid = Create_process();
         if (pid == 0)
         {
             if(execvp(argv[0],argv) == -1)
