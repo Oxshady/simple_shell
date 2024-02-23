@@ -23,5 +23,17 @@ int com_count = 0;
     if (isatty(STDIN_FILENO))
         write(STDOUT_FILENO, "$ ", 2);
     input_stat = Read_line(&usr_input,&size);
+    if (input_stat == 0)
+    {
+        printf("eof");
+         break;
+    }
+    else if (input_stat == -1)
+   {
+        printf("encountring error");
+        break;
+   }
+    else
+        printf("success complete");
 }
 }

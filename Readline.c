@@ -14,7 +14,7 @@ ssize_t Read_line(char **input, size_t *size)
 		if (feof(stdin))
 		{
 			*input = NULL;
-			exit(0);
+			return (0);
 		}
 		else
 		{
