@@ -34,6 +34,13 @@ int com_count = 0;
         break;
    }
     else
-        printf("success complete");
+    {
+        printf("read line successfull\n");
+        tokenize(usr_input,input_stat,&argv);
+        printf("tokens done\n");
+        printf("token 1 %s\n",argv[0]);
+        printf("token 2 %s\n",argv[1]);
+        printf("tokens is done suucc\n");
+    }
 }
 }
