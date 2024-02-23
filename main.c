@@ -25,28 +25,20 @@ int pid;
     if (isatty(STDIN_FILENO))
         write(STDOUT_FILENO, "$ ", 2);
     input_stat = Read_line(&usr_input,&size);
-    fflush(stdin);
-    fflush(stdout);
     if (input_stat == 0)
     {
-        printf("eof");
-        break;
+        return 0;
     }
     else if (input_stat == -1)
-   {
-        printf("encountring error");
         break;
-   }
     else
     {
         tokenize(usr_input,input_stat,&argv);
-        fflush(stdin);
-        fflush(stdout);
         pid = fork();
         if (pid == 0)
         {
             if(execvp(argv[0],argv) == -1)
-            printf("command not found\n");
+            perror("command not found");
         }
         else if (pid > 0)
         {
