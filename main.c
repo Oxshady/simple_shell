@@ -16,6 +16,7 @@ size_t size = 1024;
 char **tokens;
 int status = 0;
 int com_count = 0;
+int pid;
 
 
  while (1)
@@ -23,10 +24,12 @@ int com_count = 0;
     if (isatty(STDIN_FILENO))
         write(STDOUT_FILENO, "$ ", 2);
     input_stat = Read_line(&usr_input,&size);
+    fflush(stdin);
+    fflush(stdout);
     if (input_stat == 0)
     {
         printf("eof");
-         break;
+        break;
     }
     else if (input_stat == -1)
    {
@@ -35,12 +38,21 @@ int com_count = 0;
    }
     else
     {
-        printf("read line successfull\n");
         tokenize(usr_input,input_stat,&argv);
-        printf("tokens done\n");
-        printf("token 1 %s\n",argv[0]);
-        printf("token 2 %s\n",argv[1]);
-        printf("tokens is done suucc\n");
+        fflush(stdin);
+        fflush(stdout);
+        pid = fork();
+        if (pid == 0)
+        {
+            if(execvp(argv[0],argv) == -1)
+            printf("command not found\n");
+        }
+        else if (pid > 0)
+        {
+            wait(NULL);
+        }
     }
+    fflush(stdin);
+    fflush(stdout);
 }
 }
