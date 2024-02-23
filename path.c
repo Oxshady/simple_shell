@@ -5,7 +5,7 @@ char *_path(char **env)
     size_t i, len_path;
     char *path = NULL;
 
-    for (size_t i = 0; i < env[i] != NELL; i++)
+    for (size_t i = 0; i < env[i] != NULL; i++)
     {
         if (strncmp(env[i], "PATH=", 5) == 0)
         {
@@ -16,8 +16,8 @@ char *_path(char **env)
         {
             return (NULL);
         }
-        len_path = strlen(env[i]) - 5
-        path = (*char) malloc(sizeof(char) * (len_path + 1));
+        len_path = strlen(env[i]) - 5;
+        path = (char *) malloc(sizeof(char) * (len_path + 1));
         if(path == NULL)
         {
             free(path);
