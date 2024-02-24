@@ -11,5 +11,5 @@
 ssize_t Read_line(char **input, size_t *size);
 void tokenize(char *inp, int size, char ***vector);
 int Create_process(void);
-char *_path(char **env);
+char *_path(char **str);
 #endif
