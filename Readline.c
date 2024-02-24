@@ -11,7 +11,6 @@ ssize_t Read_line(char **input, size_t *size)
 	ssize_t Read = getline(input, size, stdin);
 	if (Read == -1)
 	{
-		free(*input);
 		if (feof(stdin))
 			return 0;
 		else
