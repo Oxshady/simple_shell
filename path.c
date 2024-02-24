@@ -1,30 +1,23 @@
 #include "main.h"
-
-char *_path(char **env)
+extern char **__environ;
+char *_path(void)
 {
-    size_t i, len_path;
+    size_t i = 0, len_path = 0;
     char *path = NULL;
 
-    for (size_t i = 0; i < env[i] != NULL; i++)
+    for (i = 0; __environ[i] != NULL; i++)    
     {
-        if (strncmp(env[i], "PATH=", 5) == 0)
+        if (strncmp(__environ[i], "PATH=", 5) == 0)
         {
-            path = *env + 5;
+            len_path = (strlen(__environ[i]) - 5);
+            path = (char *) malloc(sizeof(char) * (len_path + 1));
+            if (path == NULL)
+                return NULL;
+            strcpy(path,((__environ[i]) + 5));
             break;
         }
-        if(env[i] == NULL)
-        {
+        if(__environ[i]== NULL)
             return (NULL);
-        }
-        len_path = strlen(env[i]) - 5;
-        path = (char *) malloc(sizeof(char) * (len_path + 1));
-        if(path == NULL)
-        {
-            free(path);
-            path = NULL;
-            return (NULL);
-        }
-
     }
     return (path);
 }
