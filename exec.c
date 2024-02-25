@@ -1,11 +1,18 @@
 #include "main.h"
-int _execve(char **vect)
+int _execve(char **vect,char **paths)
 {
+	int i = 0;
+	char *dest;
+	char *copu = NULL;
 	if (vect)
 	{
-		if (execve(vect[0],vect,NULL) == -1)
-			return -1;
-		else
-			return 0;
+		while (paths[i])
+		{
+			dest =strcat(paths[i],vect[0]);
+			if (dest == NULL)
+				return 2;
+			printf("%s\n",dest);
+			i++;
+		}
 	}
 }
