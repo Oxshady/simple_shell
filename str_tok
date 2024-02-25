@@ -1,0 +1,53 @@
+#include "main.h"
+
+
+char **_strtok(char *input)
+{
+char *token = NULL, **tokens = NULL, *strtry = NULL;
+char delim = ' \t\n:';
+int i = 0, j = 0;
+
+if (!input)
+{
+    return (NULL);
+}
+
+strcpy(strtry, input);
+token = strtok(strtry,delim);
+if (token = NULL)
+{
+    free(input); // ..
+    input  = NULL; // ..
+    free(strtry);
+    strtry = NULL;
+}
+while (token)
+{
+    i++;
+    token = strtok(NULL, delim);
+}
+free(strtry);
+strtry = NULL;
+// if i not deleted we can use this two lines👇
+// free(token);
+//token = NULL;
+tokens = (char *) malloc(sizeof(char) * (i + 1));
+
+if (!tokens)
+{
+    free(input); //..
+    input = NULL;
+    return (NULL);
+}
+token = strtok(input, delim);
+while (token)
+{
+    strcpy(tokens[j],token);
+    token = strtok(NULL, delim);
+    j++;
+}
+free(input);
+input = NULL;
+tokens[j] = NULL;
+return (tokens);    
+}

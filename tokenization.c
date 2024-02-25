@@ -1,6 +1,6 @@
 #include "main.h"
 char **tokenize(char *inp, int size) 
-{
+{	
 	char **vector = NULL;
 	int token_counter = 0;
 	char *token = NULL;
