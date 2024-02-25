@@ -8,9 +8,8 @@
  * Return: 0
  */
 
-int main(__attribute__((unused))int argc, char **argv, char **env)
+int main(__attribute__((unused))int argc, char **argv, char **envp)
 {
-(void)env;
 char *usr_input = NULL;
 ssize_t input_stat;
 size_t size;
@@ -19,7 +18,8 @@ int status = 0;
 int com_count = 0;
 int pid;
 int shell_stat;
-
+char *pa = NULL;
+char **p;
  while (1)
  { 
     shell_stat = shell_prompt();
@@ -38,7 +38,9 @@ int shell_stat;
         pid = Create_process();
         if (pid == 0)
         {
-            if(_execve(tokens) == -1)
+            pa = _path(envp);
+            p = tokenize(pa);
+            if(_execve(tokens, p) == -1)
                 perror("command not found");
         }
         else if (pid > 0)
