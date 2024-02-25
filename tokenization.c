@@ -18,7 +18,7 @@ char **tokenize(char *inp)
 		return NULL;
 	}
 	inp_copy[size] = '\0';
-	strcpy(inp_copy,inp);
+	_strcpy(inp_copy,inp);
 
 	token = strtok(inp, delim);
 	while (token)
@@ -40,7 +40,7 @@ char **tokenize(char *inp)
 	token = strtok(inp_copy,delim);
 	while (token)
 	{
-		vector[i] = (char *) malloc((strlen(token) + 1) * sizeof(char));
+		vector[i] = (char *) malloc((_strlen(token + 1)) * sizeof(char));
 		if (vector[i] == NULL)
 		{
 			perror("failed to allocate for individual st");
@@ -54,7 +54,7 @@ char **tokenize(char *inp)
 			inp_copy = NULL;
 			return NULL;
 		}
-		strcpy(vector[i],token);
+		_strcpy(vector[i],token);
 		i++;
 		token = strtok(NULL,delim);
 	}
