@@ -33,7 +33,7 @@ int pid;
         break;
     else
     {
-        tokens =  tokenize(usr_input,input_stat);
+        tokens =  tokenize(usr_input);
         pid = Create_process();
         if (pid == 0)
         {
