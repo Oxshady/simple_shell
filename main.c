@@ -18,12 +18,13 @@ char **tokens = NULL;
 int status = 0;
 int com_count = 0;
 int pid;
-
+int shell_stat;
 
  while (1)
  { 
-    if (isatty(STDIN_FILENO))
-        write(STDOUT_FILENO, "$ ", 2);
+    shell_stat = shell_prompt();
+    if (shell_stat == 1)
+    {
     input_stat = Read_line(&usr_input,&size);
     if (input_stat == 0)
     {
@@ -47,5 +48,8 @@ int pid;
     }
     fflush(stdin);
     fflush(stdout);
+    }
+    else
+        return -1;
 }
 }
