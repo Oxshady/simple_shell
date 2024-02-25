@@ -33,7 +33,6 @@ char **tokenize(char *inp)
 	}
 	if (vector == NULL)
 	{
-		perror("command not found");
 		free(inp_copy);
 		return (NULL);
 	}
