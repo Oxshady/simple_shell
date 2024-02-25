@@ -1,13 +1,15 @@
 #include "main.h"
-char **tokenize(char *inp, int size) 
+char **tokenize(char *inp) 
 {	
 	char **vector = NULL;
 	int token_counter = 0;
 	char *token = NULL;
-	char *delim = " \n\t";
+	char *delim = " \n\t:";
 	char *inp_copy = NULL;
 	int i = 0;
-	if (inp != NULL && size > 0)
+	int size;
+	size = _strlen(inp);
+	if(inp != NULL && size > 0)
 	{
 	inp_copy = (char *) malloc(sizeof(char) * (size + 1));
 	if (inp_copy == NULL)
