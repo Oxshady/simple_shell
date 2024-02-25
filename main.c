@@ -38,8 +38,8 @@ int shell_stat;
         pid = Create_process();
         if (pid == 0)
         {
-            if(execvp(tokens[0],tokens) == -1)
-            perror("command not found");
+            if(_execvp(tokens) == -1)
+                perror("command not found");
         }
         else if (pid > 0)
         {
