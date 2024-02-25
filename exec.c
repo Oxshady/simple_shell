@@ -3,7 +3,6 @@ int _execve(char **vect,char **paths)
 {
 	int i = 0;
 	char *dest;
-	char *copu = NULL;
 	if (vect)
 	{
 		while (paths[i])
