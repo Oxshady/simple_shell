@@ -2,12 +2,12 @@
 char **tokenize(char *inp) 
 {	
 	char **vector = NULL;
-	int token_counter = 0;
+	int token_counter = 0; //////
 	char *token = NULL;
 	char *delim = " \n\t:";
 	char *inp_copy = NULL;
-	int i = 0;
-	int size;
+	int i = 0; /////
+	int size; ////////
 	size = _strlen(inp);
 	if(inp != NULL && size > 0)
 	{
@@ -21,17 +21,16 @@ char **tokenize(char *inp)
 	strcpy(inp_copy,inp);
 
 	token = strtok(inp, delim);
-	if (token != NULL)
-		token_counter = 1;
 	while (token)
 	{
-		token = strtok(NULL, delim);
 		token_counter++;
+		token = strtok(NULL, delim);
 	}
 	token = NULL;
-
-	vector = (char **) malloc(sizeof(char *) * (token_counter));
-
+	if (token_counter != 0)
+	{
+		vector = (char **) malloc(sizeof(char *) * (token_counter + 1));
+	}
 	if (vector == NULL)
 	{
 		perror("error for allocate memory to vector");
