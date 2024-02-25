@@ -13,5 +13,5 @@ char **tokenize(char *inp);
 int Create_process(void);
 char *_path(char **str);
 int _strlen(char *s);
-char *_strncpy(char *dest, char *src, int n);
+char *_strcpy(char *dest, char *src);
 #endif
