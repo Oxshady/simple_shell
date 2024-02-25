@@ -15,6 +15,7 @@ int Create_process(void);
 char *_path(char **str);
 int _strlen(char *s);
 char *_strcpy(char *dest, char *src);
-int _execve(char **vect);
+char *_strcat(char *dest, char *src);
+int _execve(char **vect,char **paths);
 void _get_env(char **en);
 #endif
