@@ -9,7 +9,9 @@
 #include <string.h>
 #include <errno.h>
 ssize_t Read_line(char **input, size_t *size);
-char **tokenize(char *inp, int size);
+char **tokenize(char *inp);
 int Create_process(void);
 char *_path(char **str);
+int _strlen(char *s);
+char *_strcpy(char *dest, char *src);
 #endif

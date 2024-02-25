@@ -14,7 +14,7 @@ int main(__attribute__((unused))int argc, char **argv, char **env)
 char *usr_input = NULL;
 ssize_t input_stat;
 size_t size;
-char **tokens;
+char **tokens = NULL;
 int status = 0;
 int com_count = 0;
 int pid;
@@ -33,7 +33,7 @@ int pid;
         break;
     else
     {
-        tokenize(usr_input,input_stat,&tokens);
+        tokens =  tokenize(usr_input);
         pid = Create_process();
         if (pid == 0)
         {
