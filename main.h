@@ -15,5 +15,5 @@ int Create_process(void);
 char *_path(char **str);
 int _strlen(char *s);
 char *_strcpy(char *dest, char *src);
-int _execvp(char **vect);
+int _execve(char **vect);
 #endif

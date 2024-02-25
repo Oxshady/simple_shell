@@ -33,7 +33,7 @@ char **tokenize(char *inp)
 	}
 	if (vector == NULL)
 	{
-		perror("error for allocate memory to vector");
+		perror("command not found");
 		free(inp_copy);
 		return (NULL);
 	}

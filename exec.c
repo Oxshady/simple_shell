@@ -1,9 +1,9 @@
 #include "main.h"
-int _execvp(char **vect)
+int _execve(char **vect)
 {
 	if (vect)
 	{
-		if (execvp(vect[0],vect) == -1)
+		if (execve(vect[0],vect,NULL) == -1)
 			return -1;
 		else
 			return 0;
