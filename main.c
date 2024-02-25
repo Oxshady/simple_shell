@@ -38,9 +38,7 @@ char **p;
         pid = Create_process();
         if (pid == 0)
         {
-            pa = _path(envp);
-            p = tokenize(pa);
-            if(_execve(tokens, p) == -1)
+            if(execvp(tokens[0],tokens) == -1)
                 perror("command not found");
         }
         else if (pid > 0)
