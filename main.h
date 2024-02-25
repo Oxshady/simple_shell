@@ -16,4 +16,5 @@ char *_path(char **str);
 int _strlen(char *s);
 char *_strcpy(char *dest, char *src);
 int _execve(char **vect);
+void _get_env(char **en);
 #endif
