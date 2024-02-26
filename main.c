@@ -26,6 +26,8 @@ char **p;
     if (shell_stat == 1)
     {
     input_stat = Read_line(&usr_input,&size);
+    if (usr_input[0] == '\n')
+        continue;
     if (input_stat == 0)
     {
         return 0;
@@ -38,8 +40,9 @@ char **p;
         pid = Create_process();
         if (pid == 0)
         {
-            if(execvp(tokens[0],tokens) == -1)
+            if(_execve(tokens,tokenize(_path(envp))) == -1);
                 perror("command not found");
+            exit(0);
         }
         else if (pid > 0)
         {
