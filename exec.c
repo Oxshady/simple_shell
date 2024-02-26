@@ -51,7 +51,6 @@ int _execve(char **vect,char **paths)
 			else
 				break;
 		}
-		// printf("path[%i] = %s",i,single_path);
 		free(single_path);
 		single_path = NULL;
 	}
