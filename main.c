@@ -38,6 +38,7 @@ int sa;
         break;
     else
     {
+        line_counter++;
         // export --> setenv
         // unset --> unsetenv var
         // cd --> change dir
@@ -82,7 +83,7 @@ int sa;
         if (pid == 0)
         {
             if(_execve(tokens,tokenize(_path(envp))) == -1);
-                perror("command not found");
+                Print_error(argv[0],&line_counter,tokens[0]);
             exit(0);
         }
         else if (pid > 0)

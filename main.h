@@ -23,5 +23,7 @@ int _atoi(char *s);
 int _parent(char **pare);
 int _chdir(char **vect);
 int _exitt(char **vect);
+void Print_error(char *argv, int *counter_line, char *command);
+char *_itoa(int num);
 #endif
 
