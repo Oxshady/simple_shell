@@ -18,4 +18,5 @@ char *_strcpy(char *dest, char *src);
 char *_strcat(char *dest, char *src);
 int _execve(char **vect,char **paths);
 void _get_env(char **en);
+int _getline(char **inp, size_t *size);
 #endif
