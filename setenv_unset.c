@@ -2,37 +2,37 @@
 int setenv_unset(char **vect,int val)
 {
 	char *line = NULL;
-    char *VARNAME = NULL;
-    char *VALUE = NULL;
+    char *varName = NULL;
+    char *value = NULL;
     if (vect == NULL || vect[1] == NULL) {
         printf("Invalid input\n");
         return -1;
     }
 	line = strdup(vect[1]);
-	VARNAME = strtok(line, "=");
-    if (VARNAME == NULL) {
+	varName = strtok(line, "=");
+    if (varName == NULL) {
         printf("Invalid input\n");
         return -1;
     }
 	if (val == 3)
 	{
-		if (unsetenv(VARNAME) == 0)
+		if (unsetenv(varName) == 0)
         {
-		    printf(" variable %s unsettt",VARNAME);
+		    printf(" variable %s unsettt",varName);
             free(line);
         }
         return(4);
 	}
 	
-    VALUE = strtok(NULL, "");
+    value = strtok(NULL, "");
 
-    if (VALUE[0] == '"' && VALUE[strlen(VALUE) - 1] == '"') {
-        VALUE[strlen(VALUE) - 1] = '\0';
-        VALUE++;
+    if (value[0] == '"' && value[strlen(value) - 1] == '"') {
+        value[strlen(value) - 1] = '\0';
+        value++;
     }
 
-    if (setenv(VARNAME, VALUE, 0) == 0) {
-        printf("Environment variable %s set to %s\n", VARNAME, VALUE);
+    if (setenv(varName, value, 0) == 0) {
+        printf("Environment variable %s set to %s\n", varName, value);
     } else {
         perror("setenv");
         return -1;
