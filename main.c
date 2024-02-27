@@ -13,36 +13,39 @@ char *usr_input = NULL;
 ssize_t input_stat;
 size_t size;
 char **tokens = NULL;
-int status = 0; //////// -> unused
-int line_counter = 0; //// 
+int status = 0;
+int line_counter = 0;
 pid_t pid;
 int shell_stat;
 char *pa = NULL;
 char **p;
-char buffer[20]; 
+char buffer[20];
 int sa;
 
- while (1)
- { 
-    shell_stat = shell_prompt();
-    if (shell_stat == 1)
-    {
-    input_stat = _getline(&usr_input,&size);
+while (1)
+{
+shell_stat = shell_prompt();
+line_counter++;
+if (shell_stat == 1)
+{
+input_stat = _getline(&usr_input, &size);
     if (usr_input[0] == '\n')
         continue;
     if (input_stat == 0)
     {
-        _exit(0);
+        _exit (0);
     }
     else if (input_stat == -1)
         break;
     else
     {
-        line_counter++;
-        // export --> setenv
-        // unset --> unsetenv var
-        // cd --> change dir
-        //exit --> exit from the main
+        
+        /*
+        * export --> setenv
+         * unset --> unsetenv var
+         * cd --> change dir
+         * exit --> exit from the main
+        */
         tokens =  tokenize(usr_input);
         if (strcmp(tokens[0], "exit") == 0)
         {
