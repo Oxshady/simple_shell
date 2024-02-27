@@ -9,18 +9,12 @@
 
 int main(__attribute__((unused))int argc, char **argv, char **envp)
 {
-char *usr_input = NULL;
-ssize_t input_stat;
-size_t size;
-char **tokens = NULL;
-int status = 0;
-int line_counter = 0;
+char *usr_input = NULL, *pa = NULL;
+ssize_t input_stat = 0, size = 0;
 pid_t pid;
-int shell_stat;
-char *pa = NULL;
-char **p;
 char buffer[20];
-int sa;
+char **tokens = NULL, **p = NULL;
+int sa  = 0, status = 0, shell_stat = 0, line_counter = 0;;
 
 while (1)
 {
@@ -32,20 +26,11 @@ input_stat = _getline(&usr_input, &size);
     if (usr_input[0] == '\n')
         continue;
     if (input_stat == 0)
-    {
         _exit (0);
-    }
     else if (input_stat == -1)
         break;
     else
     {
-        
-        /*
-        * export --> setenv
-         * unset --> unsetenv var
-         * cd --> change dir
-         * exit --> exit from the main
-        */
         tokens =  tokenize(usr_input);
         if (strcmp(tokens[0], "exit") == 0)
         {
@@ -94,8 +79,7 @@ input_stat = _getline(&usr_input, &size);
             wait(NULL);
         }
     }
-    fflush(stdin);
-    fflush(stdout);
+    fflush(stdin), fflush(stdout);
     }
     else
         return -1;
