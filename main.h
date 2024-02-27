@@ -8,6 +8,7 @@
 #include <fcntl.h>
 #include <string.h>
 #include <errno.h>
+extern char **__environ;
 int shell_prompt(void);
 char **tokenize(char *inp);
 pid_t Create_process(void);
@@ -26,5 +27,10 @@ int _exitt(char **vect);
 void Print_error(char *argv, int *counter_line, char *command);
 char *_itoa(int num);
 void revstr(char *buf, int i);
+char *createCommandPath(char *path, char *command);
+int executeWithPath(char **vect);
+int executeFromPaths(char **vect, char **paths);
+int containsSlash(char *str);
+int _execve(char **vect, char **paths);
 #endif
 
