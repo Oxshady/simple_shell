@@ -1,7 +1,7 @@
 #include "main.h"
-int Create_process(void)
+pid_t Create_process(void)
 {
-	int pidd;
+	pid_t pidd;
 
 	pidd = fork();
 

@@ -1,5 +1,5 @@
 #include "main.h"
-int _getline(char **inp, size_t *size) {
+size_t _getline(char **inp, size_t *size) {
     ssize_t bytes;
 
     *size = 1024;

@@ -4,8 +4,8 @@ int _parent(char **pare) {
     char parent_directory[FILENAME_MAX];
     char *last_slash = NULL;
 	size_t length;
-
-    if (pwd == NULL) {
+	
+	if (pwd == NULL) {
         perror("Unable to retrieve the current working directory.\n");
         return 1;
     }
@@ -27,8 +27,6 @@ int _parent(char **pare) {
         length = last_slash - pwd;
         strncpy(parent_directory, pwd, length);
         parent_directory[length] = '\0';
-
-        printf("Parent directory: %s\n", parent_directory);
         *pare = strdup(parent_directory);
         if (*pare == NULL) {
             perror("Memory allocation failed.\n");
