@@ -25,7 +25,7 @@ char **p;
     shell_stat = shell_prompt();
     if (shell_stat == 1)
     {
-    input_stat = Read_line(&usr_input,&size);
+    input_stat = _getline(&usr_input,&size);
     if (usr_input[0] == '\n')
         continue;
     if (input_stat == 0)
