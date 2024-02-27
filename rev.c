@@ -10,13 +10,10 @@ void revstr(char *buf, int i)
 
 	while (start < end)
 	{
-		/*Swap characters at start and end indices*/
 		char temp = buf[start];
 
 		buf[start] = buf[end];
 		buf[end] = temp;
-
-		/*Move indices towards the center*/
 		start++;
 		end--;
 	}
