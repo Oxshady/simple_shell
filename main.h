@@ -20,5 +20,6 @@ void _get_env(char **en);
 int _getline(char **inp, size_t *size);
 int setenv_unset(char **vect,int val);
 int _atoi(char *s);
+int _parent(char **pare);
 #endif
 
