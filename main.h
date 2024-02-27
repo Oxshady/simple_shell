@@ -8,6 +8,7 @@
 #include <fcntl.h>
 #include <string.h>
 #include <errno.h>
+extern char **__environ;
 int shell_prompt(void);
 char **tokenize(char *inp);
 pid_t Create_process(void);

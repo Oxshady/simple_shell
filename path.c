@@ -7,7 +7,6 @@
  * Return: Pointer to the PATH environment variable
  */
 
-extern char **__environ;
 char *_path(char **str)
 {
 size_t i = 0, len_path = 0;
