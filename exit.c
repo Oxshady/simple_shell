@@ -1,27 +1,68 @@
 #include "main.h"
 
-void _exitt(char **input)
+int _exitt(char **vect)
 {
-    char *x = "exit";
-    char **asd;
-    int i = 0;
-    int y = 0;
+    if (vect == NULL || vect[0] == NULL)
+        return 3; 
 
-    if(strncmp(input, x, 4) == 0)
+    char *x = "exit";
+    int exit_code = 0;
+
+    if (strncmp(vect[0], x, strlen(x)) == 0)
     {
-        asd[i] = strdup(strtok(input, " "));
-        while (asd != NULL)
+        if (vect[1] != NULL)
         {
-            asd[i] = strdup(strtok(NULL, " "));
-            i++;
+            exit_code = atoi(vect[1]);
+            return exit_code; 
         }
-        y = _atoi(asd[1]);
-        _exit(y);
-        free(asd);
-    } 
+        else
+            return 0; 
+    }
+
+    return 3; 
 }
-int main(void)
+int main(__attribute__((unused))int argc, char **argv, char **envp)
 {
-    char **input;
-    scanf(&input);
+    int n;
+char *usr_input = NULL;
+ssize_t input_stat;
+size_t size;
+char **tokens = NULL;
+int status = 0;
+int com_count = 0;
+int pid;
+int shell_stat;
+char *pa = NULL;
+char **p;
+ while (1)
+ { 
+    shell_stat = shell_prompt();
+    if (shell_stat == 1)
+    {
+    input_stat = _getline(&usr_input,&size);
+    if (usr_input[0] == '\n')
+        continue;
+    if (input_stat == 0)
+    {
+        return 0;
+    }
+    else if (input_stat == -1)
+        break;
+    else
+    {
+        tokens =  tokenize(usr_input);
+      n = _exitt(tokens);
+      char buffer[20]; 
+    int length = sprintf(buffer, "%d\n", n);
+    write(STDOUT_FILENO, buffer, length);
+      if (n != 3)
+        _exit(n);
+
+    }
+    fflush(stdin);
+    fflush(stdout);
+    }
+    else
+        return -1;
+}
 }

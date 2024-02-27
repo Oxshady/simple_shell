@@ -30,7 +30,7 @@ char **p;
         continue;
     if (input_stat == 0)
     {
-        return 0;
+        _exit(0);
     }
     else if (input_stat == -1)
         break;

@@ -9,6 +9,3 @@ void Print_error(char *argv, int *counter_line, char *command)
     write(STDIN_FILENO, command, _strlen(command));
     write(STDIN_FILENO, ": not found", 11);
 }
-
-
-
