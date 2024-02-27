@@ -41,15 +41,11 @@ int setenv_unset(char **vect, int val)
 		value++;
 	}
 	if (setenv(varName, value, 1) == 0)
-	{
-		printf("export suxxe");
 		return (0);
-	}
-	else
-	{
-		perror("setenv");
-		return (-1);
-	}
-
+else
+{
+	perror("setenv");
+	return (-1);
+}
 	return (0);
 }
