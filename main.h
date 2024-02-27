@@ -9,7 +9,6 @@
 #include <string.h>
 #include <errno.h>
 int shell_prompt(void);
-ssize_t Read_line(char **input, size_t *size);
 char **tokenize(char *inp);
 int Create_process(void);
 char *_path(char **str);
@@ -19,5 +18,6 @@ char *_strcat(char *dest, char *src);
 int _execve(char **vect,char **paths);
 void _get_env(char **en);
 int _getline(char **inp, size_t *size);
+int setenv_unset(char **vect,int val);
 #endif
 
