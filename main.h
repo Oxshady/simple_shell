@@ -11,7 +11,7 @@
 extern char **__environ;
 int shell_prompt(void);
 char **tokenize(char *inp);
-pid_t Create_process(void);
+int Create_process(void);
 char *_path(char **str);
 int _strlen(char *s);
 char *_strcpy(char *dest, char *src);
@@ -32,5 +32,6 @@ int executeWithPath(char **vect);
 int executeFromPaths(char **vect, char **paths);
 int containsSlash(char *str);
 int _execve(char **vect, char **paths);
+ int handle(char **tokens,int *status,int *sa,char **envp);
 #endif
 
