@@ -32,7 +32,5 @@ int executeWithPath(char **vect);
 int executeFromPaths(char **vect, char **paths);
 int containsSlash(char *str);
 int _execve(char **vect, char **paths);
-void execute_command(char **tokens, char **argv, int *line_counter, char **envp);
-int shell_loop(char **argv, char **envp);
 #endif
 

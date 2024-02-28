@@ -70,8 +70,8 @@ while (1)
         pid = Create_process();
         if (pid == 0)
         {
-            if(_execve(tokens,tokenize(_path(envp))) == -1);
-                Print_error(argv[0],&line_counter,tokens[0]);
+        if (_execve(tokens, tokenize(_path(envp))) == -1)
+            Print_error(argv[0], &line_counter, tokens[0]);
             exit(0);
         }
         else if (pid > 0)
@@ -86,4 +86,9 @@ while (1)
         return (-1);
     }
 }
+<<<<<<< HEAD
 }
+=======
+    return 0;
+}
+>>>>>>> a25f8d9bf32294a8f5a5fd23ead5c3112202e325
