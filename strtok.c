@@ -33,8 +33,7 @@ char **tokenize(char *inp)
 	}
 	token = strtok(inp_copy, delim);
 	while (token)
-	{
-		vector[i] = (char *) malloc((_strlen(token + 1)) * sizeof(char));
+	{vector[i] = (char *) malloc((_strlen(token + 1)) * sizeof(char));
 		if (vector[i] == NULL)
 		{
 			for (ii = 0; ii < i; ii++)
