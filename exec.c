@@ -1,12 +1,11 @@
 #include "main.h"
 
 /**
- * _execve - Custom implementation of the execve system call
- * @vect: An array of strings containing the command and arguments
- * @paths: An array of strings containing the directory paths
+ * _execve - custom implementation of the execve system call
+ * @vect: an array of strings containing the command and arguments
+ * @paths: an array of strings containing the directory paths
  *
- * Return: On success, this function does not return.
- *         On failure, -1 is returned.
+ * Return: on failure, -1 is returned.
  */
 
 int _execve(char **vect, char **paths)

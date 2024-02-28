@@ -1,9 +1,9 @@
 #include "main.h"
 /**
- * executeFromPaths - execute from path
- * @vect: tokens
- * @paths: tokenized pathes
- * Return: int rep stat
+ * executeFromPaths - execute entered command that dosen't contain path of com
+ * @vect: tokens of commands
+ * @paths: tokens of pathes
+ * Return: execution stat
 */
 int executeFromPaths(char **vect, char **paths)
 {

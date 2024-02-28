@@ -1,9 +1,9 @@
 #include "main.h"
 
 /**
- * executeWithPath - execute with pathes
- * @vect: tokens
- * Return: int rep stat
+ * executeWithPath - excuted entered command directly
+ * @vect: tokens of commands
+ * Return: execution stat
 */
 int executeWithPath(char **vect)
 {

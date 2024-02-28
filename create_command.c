@@ -1,9 +1,9 @@
 #include "main.h"
 /**
- * createCommandPath - create command
- * @path: path we cat
+ * createCommandPath - create path with / then conc with command
+ * @path: paths of bins
  * @command: command to cat with path
- * Return: address of first char in command path
+ * Return: concatenated slashed path with command
 */
 char *createCommandPath(char *path, char *command)
 {

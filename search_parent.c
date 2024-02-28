@@ -1,7 +1,7 @@
 /**
- * containsSlash - seaech for parent dir
+ * containsSlash - check contain slash or not
  * @str: pointer to characters
- * Return: int indicate to stat
+ * Return: one if there is slash zero if not
 */
 int containsSlash(char *str)
 {
