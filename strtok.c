@@ -22,6 +22,7 @@ char **tokenize(char *inp)
 	token = strtok(inp, delim);
 	while (token)
 		token_counter++, token = strtok(NULL, delim);
+	free(inp);
 	token = NULL;
 	if (token_counter != 0)
 		vector = (char **) malloc(sizeof(char *) * (token_counter + 1));
