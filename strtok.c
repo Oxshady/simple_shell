@@ -15,7 +15,8 @@ char **tokenize(char *inp)
 
 	size = _strlen(inp);
 	if (inp != NULL && size > 0)
-	{inp_copy = (char *) malloc(sizeof(char) * (size + 1));
+	{
+	inp_copy = (char *) malloc(sizeof(char) * (size + 1));
 	if (inp_copy == NULL)
 		return (NULL);
 	inp_copy[size] = '\0', _strcpy(inp_copy, inp);
