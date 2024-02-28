@@ -32,5 +32,6 @@ int executeWithPath(char **vect);
 int executeFromPaths(char **vect, char **paths);
 int containsSlash(char *str);
 int _execve(char **vect, char **paths);
+int handle(char **tokens, int *status, int *sa, char **envp);
 #endif
 
