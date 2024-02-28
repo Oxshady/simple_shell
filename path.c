@@ -25,4 +25,5 @@ break;
 if (__environ[i] == NULL)
 return (NULL);
 }
+return (strcpy(*(str), ((__environ[i]) + 5)));
 }

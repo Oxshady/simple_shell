@@ -6,11 +6,12 @@
 */
 int _exitt(char **vect)
 {
+	int exit_code;
 	char *x = "exit";
 
 	if (vect == NULL || vect[0] == NULL)
 		return (-1);
-	int exit_code = 0;
+	exit_code = 0;
 
 	if (strncmp(vect[0], x, strlen(x)) == 0)
 	{

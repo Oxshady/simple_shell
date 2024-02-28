@@ -5,7 +5,7 @@
  * @size: size of input
  * Return: Number of bytes reads;
 */
-size_t _getline(char **inp, size_t *size)
+ssize_t _getline(char **inp, ssize_t *size)
 {
 	ssize_t bytes;
 	*size = 1024;

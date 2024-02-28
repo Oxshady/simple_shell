@@ -8,10 +8,9 @@
  */
 
 char **tokenize(char *inp)
-{
-	char **vector = NULL;
+{	char **vector = NULL;
 	char *token = NULL, *delim = " \n\t:", *inp_copy = NULL;
-	int i = 0, size, token_counter = 0;
+	int i = 0, size, token_counter = 0, ii = 0;
 
 	size = _strlen(inp);
 	if (inp != NULL && size > 0)
@@ -37,7 +36,7 @@ char **tokenize(char *inp)
 		vector[i] = (char *) malloc((_strlen(token + 1)) * sizeof(char));
 		if (vector[i] == NULL)
 		{
-			for (size_t ii = 0; ii < i; ii++)
+			for (ii = 0; ii < i; ii++)
 			{
 				free(vector[ii]);
 			}
@@ -49,4 +48,5 @@ char **tokenize(char *inp)
 	vector[i] = NULL, free(inp_copy), inp_copy = NULL;
 	return (vector);
 	}
+	return (vector);
 }

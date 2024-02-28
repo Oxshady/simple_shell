@@ -6,7 +6,7 @@
 */
 int _chdir(char **vect)
 {
-char *home = getenv("HOME"), *dot = getenv("PWD"), *parent = NULL, *path;
+char *home = getenv("HOME"), *parent = NULL, *path;
 char *previous = getenv("OLDPWD"), *arr[] = {".", "..", "-", "~", " "};
 
 _parent(&parent), path  = NULL;
