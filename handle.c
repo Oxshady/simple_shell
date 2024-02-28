@@ -5,7 +5,7 @@
  * @status: state of cmd
  * @sa: to determine setenv stat
  * @envp: enviroment var
- * Return: stat
+ * Return:stat
 */
 int handle(char **tokens, int *status, int *sa, char **envp)
 {
@@ -46,5 +46,6 @@ _get_env(envp);
 return (-2);
 }
 else
+return (-3);
 return (-3);
 }

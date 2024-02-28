@@ -18,7 +18,7 @@ char *_strcpy(char *dest, char *src);
 char *_strcat(char *dest, char *src);
 int _execve(char **vect, char **paths);
 void _get_env(char **en);
-size_t _getline(char **inp, size_t *size);
+size_t _getline(char **inp, ssize_t *size);
 int setenv_unset(char **vect, int val);
 int _atoi(char *s);
 int _parent(char **pare);

@@ -9,9 +9,9 @@
 */
 
 int main(__attribute__((unused)) int argc, char **argv, char **envp)
-{char *usr_input = NULL, **tokens = NULL, buffer[20];
+{char *usr_input = NULL, **tokens = NULL;
 int input_stat = 0, pid = 0;
-size_t size = 0;
+ssize_t size = 0;
 int sa = 0, status = 0, shell_stat = 0, line_counter = 0;
 
 while (1)
@@ -40,13 +40,13 @@ pid = Create_process();
 if (pid == 0)
 {
 if (_execve(tokens, tokenize(_path(envp))) == -1)
-;
+{}
 Print_error(argv[0], &line_counter, tokens[0]);
 exit(0);
 }
 else if (pid > 0)
 wait(NULL);
 }}}
-else
+}
 return (-1);
-}}
+}
