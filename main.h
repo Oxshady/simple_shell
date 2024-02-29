@@ -18,7 +18,6 @@ char *_strcpy(char *dest, char *src);
 char *_strcat(char *dest, char *src);
 int _execve(char **vect, char **paths);
 void _get_env(char **en);
-// size_t _getline(char **inp, size_t *size);
 int setenv_unset(char **vect, int val);
 int _atoi(char *s);
 int _parent(char **pare);
@@ -35,4 +34,13 @@ int _execve(char **vect, char **paths);
 int handle(char **tokens, int *status, int *sa, char **envp);
 size_t _getline(char **inp, size_t *size);
 #endif
+/**
+ * notes - handle spaces
+ * handle command not found
+ * handle leaks
+ * EOF free at it
+ * // Handle echo new line
+ * remove new line from getline 
+ * // clear function by sytemcall system("clear");
+*/
 
