@@ -34,13 +34,3 @@ int _execve(char **vect, char **paths);
 int handle(char **tokens, int *status, int *sa, char **envp);
 size_t _getline(char **inp, size_t *size);
 #endif
-/**
- * notes - handle spaces
- * handle command not found
- * handle leaks
- * EOF free at it
- * // Handle echo new line
- * remove new line from getline 
- * // clear function by sytemcall system("clear");
-*/
-
