@@ -4,46 +4,42 @@
  * @inp: pointer to pointer to charachters
  * @size: size of input
  * Return: Number of bytes reads;
-*/
+ */
 size_t _getline(char **inp, size_t *size)
 {
 	ssize_t bytes;
 	*size = 1024;
 
-	*inp = (char *)calloc(*size, sizeof(char));
+	*inp = (char *)malloc(*size * sizeof(char));
 	if (*inp == NULL)
 	{
 		perror("Memory allocation failed");
-		return (-1);
+		return (-1); // -> inp NULL
 	}
 	bytes = read(STDIN_FILENO, *inp, *size);
 	if (bytes == -1)
 	{
-		perror("read"), free(*inp);
-		return (-1);
+		perror("read");
+		free(*inp);
+		return (-1); // error read
 	}
 	if (bytes == 0)
 	{
 		free(*inp);
 		return (0);
 	}
-	if ((size_t)bytes == *size)
-	{
-		*size *= 2, *inp = (char *)realloc(*inp, *size * sizeof(char));
-		if (*inp == NULL)
-		{
-			perror("Memory reallocation failed");
-			return (-1);
-		}
-		bytes += read(STDIN_FILENO, *inp + bytes, *size - bytes);
-	}
 	*size = bytes, *inp = realloc(*inp, *size);
-
+	
 	if (*inp == NULL)
 	{
 		perror("Memory reallocation failed");
 		return (-1);
 	}
-	(*inp)[bytes] = '\0';
+	if (bytes > 0)
+	{
+		(*inp)[bytes - 1] = '\0';
+	}
 	return (bytes);
 }
+// free on error -1
+// free on EOF 0
