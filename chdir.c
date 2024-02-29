@@ -7,7 +7,7 @@
 int _chdir(char **vect)
 {
 char *home = getenv("HOME"), *parent = NULL, *path;
-char *previous = getenv("OLDPWD"), *arr[] = {".", "..", "-", "~", " "};
+char *previous = getenv("OLDPWD"), *arr[] = {".", "-", "..", "~", " "};
 
 _parent(&parent), path  = NULL;
 	if (vect[0] != NULL && vect[1] == NULL)
@@ -28,12 +28,12 @@ if (strcmp(path, arr[0]) == 0)
 	else if (strcmp(path, arr[1]) == 0)
 	{
 		free(path);
-		return (chdir(parent));
+		return (chdir(previous));
 	}
 	else if (strcmp(path, arr[2]) == 0)
 {
 		free(path);
-		return (chdir(previous));
+		return (chdir(parent));
 }
 else if (strcmp(path, arr[3]) == 0 || strcmp(path, arr[4]) == 0)
 {

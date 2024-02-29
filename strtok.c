@@ -34,6 +34,10 @@ char **tokenize(char *inp)
         while (token)
         {
             vector[i] = (char *)calloc((_strlen(token) + 1), sizeof(char));
+            if (strcmp(token, "#") == 0)
+            {
+                break;
+            }
             if (vector[i] == NULL)
             {
                 for (ii = 0; ii < i; ii++)
