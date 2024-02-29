@@ -20,33 +20,51 @@ if (shell_stat == 1)
 {
 input_stat = _getline(&usr_input, &size);
 if (usr_input[0] == '\n')
+{
 continue;
+}
 if (input_stat == 0)
 _exit(0);
 else if (input_stat == -1)
 break;
 else
-{tokens = tokenize(usr_input), status = handle(tokens, &status, &sa, envp);
-if (status == 0 || status == -1)
+{tokens = tokenize(usr_input);
+status = handle(tokens, &status, &sa, envp);
+if (status == 0)
+{
 _exit(0);
+}
+else if (status == -1)
+{
+	exit(-1);
+}
 else if (status == -2)
+{
 continue;
+}
 else if (status > 0)
+{
 _exit(status);
+}
 else if (status == -3)
 {pid = Create_process();
 if (pid == 0)
 {
 	if (_execve(tokens, tokenize(_path(envp))) == -1)
-{};
+	{}
 Print_error(argv[0], &line_counter, tokens[0]);
 exit(0);
 }
 else if (pid > 0)
+free_mem(&tokens);
+free(usr_input);
 wait(NULL);
-}}}
+}
+}
+}
 else
 return (-1);
 }
+/////////////
 return (0);
 }
