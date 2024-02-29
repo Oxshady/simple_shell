@@ -36,7 +36,7 @@ int main(__attribute__((unused)) int argc, char **argv, char **envp)
 				free(usr_input);
 				if (status == 0 || status == -1)
 				{
-			    	for (int i = 0; tokens[i] != NULL; i++)
+			    	for (i = 0; tokens[i] != NULL; i++)
    					{
         				free(tokens[i]);
    					}
@@ -45,7 +45,7 @@ int main(__attribute__((unused)) int argc, char **argv, char **envp)
 				}
 				else if (status == -2)
 				{
-					for(int i = 0; tokens[i] != NULL; i++)
+					for(i = 0; tokens[i] != NULL; i++)
    					{
         				free(tokens[i]);
    					}
@@ -54,7 +54,7 @@ int main(__attribute__((unused)) int argc, char **argv, char **envp)
 				}
 				else if (status > 0)
 				{
-					for (int i = 0; tokens[i] != NULL; i++)
+					for (i = 0; tokens[i] != NULL; i++)
    					{
         				free(tokens[i]);
    					}
@@ -68,7 +68,7 @@ int main(__attribute__((unused)) int argc, char **argv, char **envp)
 					{
 						if (_execve(tokens, tokenize(_path(envp))) == -1)
 						{
-							for(int i = 0; tokens[i] != NULL; i++)
+							for(i = 0; tokens[i] != NULL; i++)
    							{
         					free(tokens[i]);
    							}
@@ -78,12 +78,14 @@ int main(__attribute__((unused)) int argc, char **argv, char **envp)
 						exit(0);
 					}
 					else if (pid > 0)
-						for(int i = 0; tokens[i] != NULL; i++)
+					{
+						for(i = 0; tokens[i] != NULL; i++)
    							{
         					free(tokens[i]);
    							}
     						free(tokens);
 						wait(NULL);
+					}
 				}
 			}
 		}

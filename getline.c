@@ -14,14 +14,14 @@ size_t _getline(char **inp, size_t *size)
 	if (*inp == NULL)
 	{
 		perror("Memory allocation failed");
-		return (-1); // -> inp NULL
+		return (-1);
 	}
 	bytes = read(STDIN_FILENO, *inp, *size);
 	if (bytes == -1)
 	{
 		perror("read");
 		free(*inp);
-		return (-1); // error read
+		return (-1);
 	}
 	if (bytes == 0)
 	{
@@ -41,5 +41,5 @@ size_t _getline(char **inp, size_t *size)
 	}
 	return (bytes);
 }
-// free on error -1
-// free on EOF 0
+
+
