@@ -16,7 +16,7 @@ int sa = 0, status = 0, shell_stat = 0, line_counter = 0;
 
 while (1)
 {shell_stat = shell_prompt(), line_counter++;
-if (shell_stat == 1)
+if (shell_stat == 1 || shell_stat == 0)
 {
 input_stat = _getline(&usr_input, &size);
 if (usr_input[0] == '\n')
@@ -45,8 +45,6 @@ exit(0);
 else if (pid > 0)
 wait(NULL);
 }}}
-else
-return (-1);
 }
 return (0);
 }
