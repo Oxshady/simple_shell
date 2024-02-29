@@ -26,6 +26,7 @@ char **tokenize(char *inp)
         token = NULL;
         if (token_counter != 0)
             vector = (char **)calloc(sizeof(char *), (token_counter + 1));
+		vector[token_counter] = NULL;
         if (vector == NULL)
         {
             free(inp_copy);
