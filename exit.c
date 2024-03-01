@@ -18,10 +18,7 @@ int _exitt(char **vect)
 		if (vect[1] != NULL)
 		{
 			exit_code = atoi(vect[1]);
-			if (exit_code > 0)
-				return (exit_code);
-			else
-				return(-1);
+			return (exit_code);
 		}
 		else
 			return (0);
