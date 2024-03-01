@@ -8,13 +8,14 @@
  * @envp: Environment variables
  */
 
-void CmdFoundOrNot(char **argv, char *command, int *line_counter,char **envp){
-    if (access(command, X_OK) == 0)
-    {
-        _execve(&command, tokenize(_path(envp)));
-    }
-    else
-    {
-         Print_error(argv[0], line_counter, command);
-    }
+void CmdFoundOrNot(char **argv, char *command, int *line_counter, char **envp)
+{
+if (access(command, X_OK) == 0)
+{
+_execve(&command, tokenize(_path(envp)));
+}
+else
+{
+Print_error(argv[0], line_counter, command);
+}
 }
