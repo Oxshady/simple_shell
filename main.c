@@ -19,20 +19,21 @@ int main(__attribute__((unused)) int argc, char **argv, char **envp)
 	{
 		shell_stat = shell_prompt();
 		line_counter++;
-		if (shell_stat == 1)
+		if (shell_stat == 1 || shell_stat == 0)
 {
-    input_stat = _getline(&usr_input, &size);
-if (input_stat <= 0) {
-    if (input_stat == -1) {
-        perror("Error reading input");
-    }
-    break;
-}
-if (usr_input[0] == '\n')
-{
-    continue;
-}
-
+	input_stat = _getline(&usr_input, &size);
+	if (input_stat <= 0)
+	{
+	if (input_stat == -1)
+	{
+		perror("Error reading input");
+	}
+	break;
+	}
+	if (usr_input[0] == '\n')
+	{
+		continue;
+	}
 			if (input_stat == 0)
 				_exit(0);
 			else if (input_stat == -1)
