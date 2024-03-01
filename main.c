@@ -97,8 +97,6 @@ int main(__attribute__((unused)) int argc, char **argv, char **envp)
 				}
 			}
 		}
-		else
-			return (-1);
 	}
 	return (0);
 }
