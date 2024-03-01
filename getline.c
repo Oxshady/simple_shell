@@ -29,7 +29,7 @@ size_t _getline(char **inp, ssize_t *size)
 		return (0);
 	}
 	*size = bytes, *inp = realloc(*inp, *size);
-	
+
 	if (*inp == NULL)
 	{
 		perror("Memory reallocation failed");
