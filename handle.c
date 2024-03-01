@@ -14,15 +14,13 @@ if (strcmp(tokens[0], "exit") == 0)
 {
 *status = _exitt(tokens);
 if (*status == 0)
-_exit(0);
+return (0);
 else if (*status > 0)
 {
-int length = sprintf(buffer, "%d\n", *status);
-write(STDOUT_FILENO, buffer, length);
 return (*status);
 }
-else if (*status == -1)
-return (-1);
+else if (*status < 0)
+return (2);
 }
 else if (strcmp(tokens[0], "export") == 0)
 {
