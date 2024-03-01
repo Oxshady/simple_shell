@@ -19,7 +19,7 @@ else if (*status > 0)
 return (*status);
 }
 else if (*status < 0)
-return (2);
+return (100);
 }
 else if (strcmp(tokens[0], "export") == 0)
 {

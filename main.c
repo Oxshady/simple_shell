@@ -42,6 +42,15 @@ int main(__attribute__((unused)) int argc, char **argv, char **envp)
 			{
 				tokens = tokenize(usr_input), status = handle(tokens, &status, &sa, envp);
 				free(usr_input);
+				if (status == 100)
+				{
+					for (i = 0; tokens[i] != NULL; i++)
+   					{
+        				free(tokens[i]);
+   					}
+    				free(tokens);
+					_exit(2);
+				}
 				if (status == 0 || status == -1)
 				{
 			    	for (i = 0; tokens[i] != NULL; i++)
