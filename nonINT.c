@@ -8,28 +8,20 @@
 * @argv: file name for errors
 */
 void handle_command(char **tokens, char **envp, int line, char *argv)
-{
-int found = 0;
-char *path_copy = NULL;
-char *path_token = NULL;
+{int found = 0;
+char *path_copy = NULL, *path_token = NULL;
 char *path = getenv("PATH");
 
 if (path == NULL)
-{fprintf(stderr, "PATH environment variable not found\n");
 exit(EXIT_FAILURE);
-}
 path_copy = strdup(path);
 if (path_copy == NULL)
-{
-perror("strdup");
 exit(EXIT_FAILURE);
-}
 path_token = strtok(path_copy, ":");
 while (path_token != NULL)
 {char *command_path = NULL;
 if (strcmp(tokens[0], "/") == 0)
-{command_path = strdup(tokens[0]);
-}
+command_path = strdup(tokens[0]);
 else
 {
 size_t path_len = strlen(path_token), token_len = strlen(tokens[0]);
@@ -38,7 +30,8 @@ if (command_path == NULL)
 {perror("malloc");
 exit(EXIT_FAILURE);
 }
-snprintf(command_path, path_len + token_len + 2, "%s/%s", path_token, tokens[0]);
+snprintf(command_path, path_len + token_len + 2,
+"%s/%s", path_token, tokens[0]);
 }
 if (access(command_path, X_OK) == 0)
 {
