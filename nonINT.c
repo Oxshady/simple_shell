@@ -32,7 +32,7 @@ if (strcmp(tokens[0], "/") == 0)
 }
 else
 {
-size_t path_len = strlen(path_token), size_t token_len = strlen(tokens[0]);
+size_t path_len = strlen(path_token), token_len = strlen(tokens[0]);
 command_path = malloc(path_len + token_len + 2);
 if (command_path == NULL)
 {perror("malloc");
