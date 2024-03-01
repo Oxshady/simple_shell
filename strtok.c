@@ -13,8 +13,7 @@ int i = 0, size, token_counter = 0, ii = 0;
 
 size = _strlen(inp);
 if (inp != NULL && size > 0)
-{
-inp_copy = (char *)malloc(sizeof(char) * (size + 1));
+{inp_copy = (char *)malloc(sizeof(char) * (size + 1));
 if (inp_copy == NULL)
 return (NULL);
 _strcpy(inp_copy, inp);
@@ -26,24 +25,18 @@ token = NULL;
 if (token_counter != 0)
 vector = (char **)calloc(sizeof(char *), (token_counter + 1));
 if (vector == NULL)
-{
-free(inp_copy);
+{free(inp_copy);
 return (NULL);
 }
 token = strtok(inp_copy, delim);
 while (token)
-{
-vector[i] = (char *)calloc((_strlen(token) + 1), sizeof(char));
+{vector[i] = (char *)calloc((_strlen(token) + 1), sizeof(char));
 if (strcmp(token, "#") == 0)
-{
 break;
-}
 if (vector[i] == NULL)
 {
 for (ii = 0; ii < i; ii++)
-{
 free(vector[ii]);
-}
 free(vector);
 free(inp_copy);
 return (NULL);
@@ -54,4 +47,3 @@ vector[i] = NULL;
 free(inp_copy);
 }
 return (vector);
-}
