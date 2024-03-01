@@ -47,3 +47,4 @@ vector[i] = NULL;
 free(inp_copy);
 }
 return (vector);
+}
