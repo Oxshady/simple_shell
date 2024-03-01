@@ -13,7 +13,7 @@ if (strcmp(tokens[0], "exit") == 0)
 {
 *status = _exitt(tokens);
 if (*status == 0)
-return (0);
+return (2);
 else if (*status > 0)
 {
 return (*status);
