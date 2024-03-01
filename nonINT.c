@@ -9,20 +9,22 @@
 */
 void handle_command(char **tokens, char **envp, int line, char *argv)
 {
+int found = 0;
+char *path_copy = NULL;
+char *path_token = NULL;
 char *path = getenv("PATH");
 if (path == NULL) {
 fprintf(stderr, "PATH environment variable not found\n");
 exit(EXIT_FAILURE);
 }
 
-char *path_copy = strdup(path);
+path_copy = strdup(path);
 if (path_copy == NULL) {
 perror("strdup");
 exit(EXIT_FAILURE);
 }
 
-char *path_token = strtok(path_copy, ":");
-int found = 0;
+path_token = strtok(path_copy, ":");
 
 while (path_token != NULL) {
 char *command_path = NULL;

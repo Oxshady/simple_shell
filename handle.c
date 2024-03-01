@@ -9,7 +9,6 @@
 */
 int handle(char **tokens, int *status, int *sa, char **envp)
 {
-char buffer[20];
 if (strcmp(tokens[0], "exit") == 0)
 {
 *status = _exitt(tokens);

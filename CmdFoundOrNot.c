@@ -15,7 +15,6 @@ void CmdFoundOrNot(char **argv, char *command, int *line_counter,char **envp){
     }
     else
     {
-        printf("commanddd no found %s", command);
-        // Print_error(argv[0], line_counter, command);
+         Print_error(argv[0], line_counter, command);
     }
 }
