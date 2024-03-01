@@ -18,10 +18,15 @@ int _chdir(char **vect)
     if (path == NULL)
         return -1;
 
-    if (strcmp(path, ".") == 0 || strcmp(path, "~") == 0)
+    if (strcmp(path, ".") == 0)
     {
         free(path);
         return chdir(".") == 0 ? 0 : -1;
+    }
+    if (strcmp(path, "~") == 0)
+    {
+        free(path);
+        return chdir(home) == 0 ? 0 : -1;
     }
     else if (strcmp(path, "-") == 0) {
         if (!previous) {

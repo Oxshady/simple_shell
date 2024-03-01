@@ -31,7 +31,8 @@ char *createCommandPath(char *path, char *command);
 int executeWithPath(char **vect);
 int executeFromPaths(char **vect, char **paths);
 int containsSlash(char *str);
-int _execve(char **vect, char **paths);
 int handle(char **tokens, int *status, int *sa, char **envp);
+void handle_command(char **tokens, char **envp, int line, char *argv);
+void Non_Print_error(char *argv, int *counter_line, char *command);
 #endif
 
