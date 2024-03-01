@@ -21,7 +21,7 @@ write(STDOUT_FILENO, "\n", 2);
 }
 
 /**
- * Print_error - Print error message of NON interactive shell
+ * Non_Print_error - Print error message of NON interactive shell
  * @argv: Argument vector
  * @counter_line: Pointer to counter line
  * @command: Command
